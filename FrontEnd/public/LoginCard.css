@@ -1,0 +1,20 @@
+.main-div{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 21rem;
+    height: 33rem;
+    background-color: #261f4d;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3rem;
+    border: 1px solid #7b5feb;
+    box-shadow: 0 4px 8px 0 #7b5feb, 0 6px 20px 0 rgb(38, 31, 77);
+}
