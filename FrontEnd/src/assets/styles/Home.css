@@ -1,0 +1,49 @@
+.main-div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    margin-top: 4rem;
+    align-items: center;
+    flex-direction: column;
+}
+
+.heading {
+    width: 80%;
+    height: 4rem;
+    display: flex;
+    text-align: center;
+    color: white;
+}
+
+.heading-div {
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    width: 20%;
+    background-color: #261f4d;
+    height: 100%;
+    border-radius: 1rem;
+    border: 1px solid #7b5feb;
+    box-shadow: 0 4px 8px 0 #7b5feb, 0 6px 20px 0 rgb(38, 31, 77);
+}
+
+.row {
+    width: 80%;
+    height: 100%;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.row-value {
+    border-radius: 1rem;
+    background-color: #261f4d;
+    width: 20%;
+    height: 3.5rem;
+    border: 1px solid #7b5feb;
+    box-shadow: 0 4px 8px 0 #7b5feb, 0 6px 20px 0 rgb(38, 31, 77);
+}
+
