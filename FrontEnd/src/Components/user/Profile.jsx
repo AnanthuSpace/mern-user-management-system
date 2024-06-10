@@ -10,24 +10,24 @@ function Profile() {
             alt="image"
           />
         </div>
-        {/* <label htmlFor="email" className="label">
+        {/* <label className="label">
             Username
           </label> */}
-          <input
-            type="text"
-            className="input"
-            // onChange={(e) => setEmail(e.target.value)}
-            placeholder="Ananthu Mohan"
-          />
-          {/* <label htmlFor="email" className="label">
+        <input
+          type="text"
+          className="input"
+          // onChange={(e) => setEmail(e.target.value)}
+          placeholder="Ananthu Mohan"
+        />
+        {/* <label className="label">
             Email
           </label> */}
-          <input
-            type="text"
-            className="input"
-            // onChange={(e) => setEmail(e.target.value)}
-            placeholder="ananthumohan@gmail.com"
-          />
+        <input
+          type="text"
+          className="input"
+          // onChange={(e) => setEmail(e.target.value)}
+          placeholder="ananthumohan@gmail.com"
+        />
 
         <button className="btn">Edit</button>
       </div>

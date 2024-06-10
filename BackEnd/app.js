@@ -1,16 +1,17 @@
 const express = require('express');
-const dotenv = require('dotenv')
-dotenv.config()
-const port = process.env.PORT
+const cors = require('cors')
+const userRoute = require('./router/userRouter')
+require('dotenv').config()
 require('./database/db_connect')
 
+const port = process.env.PORT
 const app = express();
 
+app.use(express.json())
+app.use(cors())
 
-app.get('/', (req, res) => {
-    res.send('Hello World');
-});
+app.use("/", userRoute);
 
 app.listen(port, () => {
-    console.log('Server running on http://localhost:3000');
+    console.log(`Server running on ${port}`);
 });

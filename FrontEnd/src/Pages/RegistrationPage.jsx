@@ -1,11 +1,11 @@
-import Registration from '../Components/auth/Registration'
+import Registration from "../Components/auth/Registration";
 
 function RegistrationPage() {
   return (
     <>
-    <Registration />
+      <Registration />
     </>
-  )
+  );
 }
 
-export default RegistrationPage
+export default RegistrationPage;

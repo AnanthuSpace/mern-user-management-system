@@ -1,11 +1,11 @@
-import LoginCard from '../Components/auth/LoginCard'
+import LoginCard from "../Components/auth/LoginCard";
 
-function LoginPage({admin}) {
+function LoginPage({ admin }) {
   return (
     <>
-    <LoginCard admin={admin}/>
+      <LoginCard admin={admin} />
     </>
-  )
+  );
 }
 
-export default LoginPage
+export default LoginPage;

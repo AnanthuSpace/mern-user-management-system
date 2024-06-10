@@ -1,14 +1,13 @@
-import React from 'react'
-import Home from '../Components/user/admin/Home'
-import Header from '../Components/common/Header'
+import Home from "../Components/admin/Home";
+import Header from "../Components/common/Header";
 
 function HomePage() {
   return (
     <>
-    <Header />
-    <Home />
+      <Header admin={"true"} />
+      <Home />
     </>
-  )
+  );
 }
 
-export default HomePage
+export default HomePage;

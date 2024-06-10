@@ -1,4 +1,4 @@
-.profile-div{
+.profile-div {
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -8,7 +8,7 @@
     width: 20rem;
     height: 33rem;
     margin-top: 3.5rem;
-    background-color:#261f4d;
+    background-color: #261f4d;
     border-radius: 3rem;
     border: 1px solid #7b5feb;
     box-shadow: 0 4px 8px 0 #7b5feb, 0 6px 20px 0 rgb(38, 31, 77);
@@ -18,19 +18,19 @@
     color: white;
 }
 
-.profile-card h1{
+.profile-card h1 {
     padding: 0px 0px;
 }
 
-.image{
+.image {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.image img{
+.image img {
     margin-top: 1.5rem;
-    width:10rem;
+    width: 10rem;
     height: 10rem;
     border-radius: 5rem;
     border: 1px solid #7b5feb;

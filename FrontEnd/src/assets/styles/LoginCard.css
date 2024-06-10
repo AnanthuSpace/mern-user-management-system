@@ -6,9 +6,9 @@
     align-items: center;
 }
 
-.card {
+.login-card {
     width: 21rem;
-    height: 33rem;
+    height: 30rem;
     background-color: #261f4d;
     color: white;
     display: flex;
@@ -21,7 +21,7 @@
     box-shadow: 0 4px 8px 0 #7b5feb, 0 6px 20px 0 rgb(38, 31, 77);
 }
 
-.card h1 {
+.login-card h1 {
     margin-bottom: 4rem;
     font-size: 1.5rem;
     color: white;
@@ -93,4 +93,5 @@
 .label {
     margin-right: auto;
     padding-left: 2rem;
+    margin-bottom: -1rem;
 }

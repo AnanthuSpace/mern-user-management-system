@@ -8,7 +8,7 @@
   box-shadow: 0 -4px 15px 0 #7b5feb, 0 4px 20px 0 rgb(38, 31, 77);
 }
 
-.nav-bar > h1 {
+.nav-bar>h1 {
   font-size: 2rem;
   color: white;
   margin-left: 3rem;
@@ -16,8 +16,8 @@
 
 .svg {
   margin-right: 3rem;
-  width: 2rem; 
-  height: 2rem; 
+  width: 2rem;
+  height: 2rem;
 }
 
 .svg svg {

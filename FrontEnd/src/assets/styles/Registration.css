@@ -7,15 +7,15 @@
 }
 
 .card {
-    width: 21rem;
-    height: 33rem;
+    width: 22rem;
+    height: 40rem;
+    margin-top: 0rem;
     background-color: #261f4d;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 6rem;
     border-radius: 3rem;
     border: 1px solid #7b5feb;
     box-shadow: 0 4px 8px 0 #7b5feb, 0 6px 20px 0 rgb(38, 31, 77);
@@ -86,7 +86,7 @@
 
 .link:hover {
     color: #9a82ff;
-    color: white; 
+    color: white;
 }
 
 .label {
