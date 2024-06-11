@@ -1,13 +1,13 @@
 .profile-div {
-    height: 100vh;
+    height: auto;
     display: flex;
     justify-content: center;
 }
 
 .profile-card {
     width: 20rem;
-    height: 33rem;
-    margin-top: 3.5rem;
+    height: auto;
+    margin-top: 7rem;
     background-color: #261f4d;
     border-radius: 3rem;
     border: 1px solid #7b5feb;
@@ -18,8 +18,13 @@
     color: white;
 }
 
-.profile-card h1 {
-    padding: 0px 0px;
+span {
+    font-weight: bold;
+}
+
+p {
+    padding-top: 1rem;
+    margin-top: 1rem;
 }
 
 .image {
@@ -32,6 +37,7 @@
     margin-top: 1.5rem;
     width: 10rem;
     height: 10rem;
+    object-fit: cover;
     border-radius: 5rem;
     border: 1px solid #7b5feb;
     box-shadow: 0 4px 8px 0 #7b5feb, 0 6px 20px 0 rgb(38, 31, 77);
@@ -42,6 +48,7 @@
     height: 2rem;
     width: 7rem;
     margin-top: 2rem;
+    margin-bottom: 3rem;
     background-color: #7b5feb;
     color: white;
     font-size: 1rem;
@@ -49,4 +56,26 @@
 
 .btn:hover {
     background-color: #6a4cd8;
+}
+
+.text-left {
+    text-align: left;
+    margin-top: 2rem;
+}
+
+.input {
+    width: 100%;
+    margin-bottom: 2rem;
+    border: none;
+    border-bottom: 2px solid #7b5feb;
+    background-color: transparent;
+    color: white;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
