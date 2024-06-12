@@ -1,71 +1,94 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "../../assets/styles/Profile.css";
 import { ToastContainer, toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { editProfile } from "../../redux/users/userThunk";
+import { Camera } from "../../assets/svg/svg";
 
 function Profile() {
+  const userData = useSelector((state) => state.user.userData);
+  const [username, setUsername] = useState("");
+  const [edit, setEdit] = useState(false);
+  const [image, setImage] = useState(null);
+  const imageIconReference = useRef(null);
+  const dispatch = useDispatch();
 
-  const userData = useSelector((state)=>state.user.userData)
-  const [ username, setUsername ] = useState('')
-  const [edit, setEdit ] = useState(false)
-  const dispatch = useDispatch()
+  useEffect(() => {
+    setEdit(false);
+    console.log(userData);
+  }, [userData]);
 
-  useEffect(()=>{
-    setEdit(false)
-  },[userData])
-
-  const saveData = async (e, userId) =>{
+  const saveData = async (e, userID) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("userID", userId);
-    formData.append("name", username);
-    dispatch(editProfile({ formData, username, toast }));
-  }
+    formData.append("userID", userID); 
+    formData.append("username", username);
+    if (image) {
+      formData.append("newImage", image);
+    }
+    dispatch(editProfile({ formData, username, image, toast }));
+  };
 
   return (
     <>
-    <ToastContainer/>
-    <div className="profile-div">
-      <div className="profile-card">
-        <div className="image">
-          <img
-            src="https://wallpapers.com/images/featured/anonymous-pictures-j89s1ratkktsm42d.webp"
-            alt="image"
-          />
+      <ToastContainer />
+      <div className="profile-div">
+        <div className="profile-card">
+          {edit ? (
+            <>
+              <form className="profileform" onSubmit={(e)=>saveData(e, userData._id)}>
+                <div
+                  className="circle"
+                  style={
+                    image
+                      ? { backgroundImage: `url(${URL.createObjectURL(image)})` }
+                      : { backgroundImage: `url(../src/assets/images/${userData.profileURL})` }
+                  }
+                >
+                  <input
+                    type="file"
+                    hidden
+                    ref={imageIconReference}
+                    onChange={(e) => setImage(e.target.files[0])}
+                    accept=".png, .jpeg, .jpg"
+                  />
+                  <div onClick={() => imageIconReference.current.click()}>
+                    <Camera />
+                  </div>
+                </div>
+                <input
+                  type="text"
+                  className="profileinput"
+                  onChange={(e) => setUsername(e.target.value)}
+                  placeholder={userData.username}
+                />
+                <div className="btn-div">
+                  <button type="button" className="btn" onClick={() => { setEdit(false); setImage(null) }}>
+                    Cancel
+                  </button>
+                  <button type="submit" className="btn">
+                    Save
+                  </button>
+                </div>
+              </form>
+            </>
+          ) : (
+            <>
+              <div className="image">
+                <img
+                  src={`../src/assets/images/${userData.profileURL}`}
+                  alt="Profile"
+                />
+              </div>
+              <div className="text-left">
+                <p><span>Name : </span>{userData.username}</p>
+                <p><span>Email : </span>{userData.email}</p>
+              </div>
+              <button className="btn" onClick={() => setEdit(true)}>Edit</button>
+            </>
+          )}
         </div>
-        {edit ? 
-        <>
-        <form onSubmit={(e) => saveData(e, userData._id)}>
-        <input
-          type="text"
-          className="input"
-          onChange={(e) => setUsername(e.target.value)}
-          placeholder={userData.username}
-        />
-        {/* <input
-          type="text"
-          className="input"
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder={userData.email}
-        /> */}
-        <div className="btn-div">
-        <button className="btn" onClick={()=>setEdit(false)}>Cancel</button>
-        <button className="btn" onClick={saveData}>Save</button>
-        </div>
-        </form>
-        </>
-        :
-        <>
-        <div className="text-left">
-        <p><span>Name : </span>{userData.username}</p>
-        <p><span>Name : </span>{userData.email}</p>
-        </div>
-        <button className="btn" onClick={()=>setEdit(true)}>Edit</button>
-        </>
-        }
       </div>
-    </div>
     </>
   );
 }

@@ -73,46 +73,45 @@ const userVerification = createAsyncThunk(
 
 
 const editProfile = createAsyncThunk(
-    "userSlice/editProfile",
-    async ({ formData, username, toast }, { rejectWithValue }) => {
-        try {
-            username = username.trim();
-            const nameRegex = /^[a-zA-Z\s]{3,20}$/;
-            if (username === "") {
-                toast.warning("All the fields are required!", { hideProgressBar: true, autoClose: 3000 });
-                return rejectWithValue("All the fields are required!");
-            } else if (!nameRegex.test(username)) {
-                toast.warning("Name must be between 3 to 20 characters and contain only letters!", { hideProgressBar: true, autoClose: 3000 });
-                return rejectWithValue("Invalid name format!");
-            } else {
-                console.log(username);
-                const token = JSON.parse(localStorage.getItem("token"));
-                const response = await axios.post(`${localhostURL}/editProfile`, username, {
-                    headers: {
-                        "Content-Type": "multipart/form-data",
-                        "Authorization": `Bearer ${token}`
-                    }
-                });
-                if (response.data.acknowledged === true && response.data.modifiedCount == 1) {
-                    toast.success("Update changes successfully", { hideProgressBar: true, autoClose: 3000 });
-                    return { username };
-                } else if (response.data === "Access_denied") {
-                    toast.warning("Access_denied", { hideProgressBar: true, autoClose: 3000 });
-                    return rejectWithValue("Access_denied");
-                } else if (response.data === "authentication_failed") {
-                    toast.warning("Authentication failed please login again", { hideProgressBar: true, autoClose: 3000 });
-                    return rejectWithValue("Access_denied");
-                } else {
-                    toast.warning("No changes detected", { hideProgressBar: true, autoClose: 3000 });
-                    return rejectWithValue("No changes found");
-                }
-            }
-        } catch (error) {
-            console.error("Error: ", error);
-            toast.error("Something went wrong, please try again later", { hideProgressBar: true, autoClose: 3000 });
-            return rejectWithValue(error.message);
+  "userSlice/editProfile",
+  async ({ formData, username, image, toast }, { rejectWithValue }) => {
+    try {
+      username = username.trim();
+      const nameRegex = /^[a-zA-Z\s]{3,20}$/;
+      if (username === "" ) {
+        toast.warning("All the fields are required!", { hideProgressBar: true, autoClose: 3000 });
+        return rejectWithValue("All the fields are required!");
+      } else if (!nameRegex.test(username)) {
+        toast.warning("Name must be between 3 to 20 characters and contain only letters!", { hideProgressBar: true, autoClose: 3000 });
+        return rejectWithValue("Invalid name format!");
+      }  else {
+        const token = JSON.parse(localStorage.getItem("token"));
+        const response = await axios.post(`${localhostURL}/editProfile`, formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            "Authorization": `Bearer ${token}`
+          }
+        });
+        if (response.data.acknowledged === true && response.data.modifiedCount == 1) {
+          toast.success("Update changes successfully", { hideProgressBar: true, autoClose: 3000 });
+          return { username, ...(image && { profileURL: image.name }) };
+        } else if (response.data === "Access_denied") {
+          toast.warning("Access_denied", { hideProgressBar: true, autoClose: 3000 });
+          return rejectWithValue("Access_denied");
+        } else if (response.data === "authentication_failed") {
+          toast.warning("Authentication failed please login again", { hideProgressBar: true, autoClose: 3000 });
+          return rejectWithValue("Access_denied");
+        } else {
+          toast.warning("No changes detected", { hideProgressBar: true, autoClose: 3000 });
+          return rejectWithValue("No changes found");
         }
+      }
+    } catch (error) {
+      console.error("Error: ", error);
+      toast.error("Something went wrong, please try again later", { hideProgressBar: true, autoClose: 3000 });
+      return rejectWithValue(error.message);
     }
+  }
 )
 
 

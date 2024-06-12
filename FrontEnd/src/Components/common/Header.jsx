@@ -1,14 +1,25 @@
 import "../../assets/styles/Header.css";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logoutUser } from "../../redux/users/userSlice";
+
+
 function Header({ admin }) {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(logoutUser());
+    navigate("/");
+  };
+
   return (
     <div className="nav-bar">
       <h1></h1>
       <div className="svg">
         {admin ? (
           <svg
-            onClick={() => navigate("/admin")}
+            onClick={handleLogout}
             viewBox="0 -0.5 25 25"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +40,8 @@ function Header({ admin }) {
           </svg>
         ) : (
           <svg
-            onClick={() => navigate("/")}
+            // onClick={() => navigate("/")}
+            onClick={handleLogout}
             viewBox="0 -0.5 25 25"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
