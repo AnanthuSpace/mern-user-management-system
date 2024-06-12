@@ -1,36 +1,34 @@
 import "../../assets/styles/LoginCard.css";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import { userVerification } from "../../redux/users/userThunk";
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
+import { login } from "../../redux/admin/adminThunk";
 
-function LoginCard() {
+function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const userData = useSelector((state) => state.user.userData);
-
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    dispatch(userVerification({ email, password, toast }));
-  };
+  const token = useSelector((state) => state.admin.adminToken);
 
   useEffect(() => {
-    if (userData) {
-      navigate("/profile");
-    }
-  }, [userData])
+    if (token) navigate("/home");
+  }, [token]);
 
+  const handleLogin = (e) => {
+    e.preventDefault();
+    dispatch(login({ email, password, toast }));
+  };
 
   return (
     <>
+    {console.log("Login page wrkg")}
       <ToastContainer />
       <div className="main-div">
         <div className="login-card shadow-box">
-          <h1>Login</h1>
-          <form className="form" onSubmit={(e) => handleLogin(e)}>
+          <h1> Admin Login</h1>
+          <form className="form" onSubmit={handleLogin}>
             <label className="label">Email</label>
             <input
               type="text"
@@ -46,9 +44,6 @@ function LoginCard() {
             <button type="submit" className="button">
               Login
             </button>
-              <p className="link" onClick={() => navigate("/signup")}>
-                Dont't have an account Register
-              </p>
           </form>
         </div>
       </div>
@@ -56,4 +51,4 @@ function LoginCard() {
   );
 }
 
-export default LoginCard;
+export default Login;

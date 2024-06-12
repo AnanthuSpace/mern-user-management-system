@@ -62,8 +62,18 @@ const editProfile = async (req, res) => {
     }
 };
 
+const fetchUserData =async (req,res) => {
+    try {
+        const usersList = await User.find({});
+        res.json(usersList);
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
 module.exports = {
     register,
     loginPost,
-    editProfile
+    editProfile,
+    fetchUserData
 };

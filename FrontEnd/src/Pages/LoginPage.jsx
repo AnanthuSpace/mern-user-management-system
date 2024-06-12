@@ -1,9 +1,9 @@
 import LoginCard from "../Components/auth/LoginCard";
 
-function LoginPage({ admin }) {
+function LoginPage() {
   return (
     <>
-      <LoginCard admin={admin} />
+      <LoginCard />
     </>
   );
 }

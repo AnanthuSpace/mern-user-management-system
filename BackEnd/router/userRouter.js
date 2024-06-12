@@ -7,5 +7,6 @@ const Controller = require('../controllers/UserController')
 Router.post('/signup', Controller.register)
 Router.post('/login', Controller.loginPost)
 Router.post('/editProfile',upload.single("newImage"),Controller.editProfile)
+Router.get('/fetchuser', Controller.fetchUserData)
 
 module.exports = Router;
