@@ -1,94 +1,62 @@
-/* .main-div {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    margin-top: 4rem;
-    align-items: center;
-    flex-direction: column;
-}
-
-.heading {
-    width: 80%;
-    height: 4rem;
-    display: flex;
-    text-align: center;
-    color: white;
-}
-
-.heading-div {
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1rem;
-    background-color: #261f4d;
-    height: 100%;
-    border-radius: 1rem;
-    border: 1px solid #7b5feb;
-    box-shadow: 0 4px 8px 0 #7b5feb, 0 6px 20px 0 rgb(38, 31, 77);
-}
-
-.row {
-    width: 80%;
-    height: 100%;
-    border-radius: 1rem;
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
-}
-
-.row-value {
-    border-radius: 1rem;
-    background-color: #261f4d;
-    width: 20%;
-    height: 3.5rem;
-    border: 1px solid #7b5feb;
-    box-shadow: 0 4px 8px 0 #7b5feb, 0 6px 20px 0 rgb(38, 31, 77);
-} */
-
 .main-div {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    margin-top: 4rem;
-    align-items: center;
-    flex-direction: column;
-  }
-  
-  .user-table {
-    width: 80%;
-  }
-  
-  .user-table th,
-  .user-table td {
-    text-align: center;
-    padding: 1rem;
-    border: 1px solid #7b5feb;
-    color: white;
-  }
-  
-  .user-table th {
-    background-color: #261f4d;
-    font-weight: bold;
-    font-size: 1rem;
-    border-radius: 1rem;
-    box-shadow: 0 4px 8px 0 #7b5feb, 0 6px 20px 0 rgb(38, 31, 77);
-  }
-  
-  .user-table td {
-    background-color: #261f4d;
-    border-radius: 1rem;
-    box-shadow: 0 4px 8px 0 #7b5feb, 0 6px 20px 0 rgb(38, 31, 77);
-  }
-  
-  .user-table button {
-    background-color: transparent;
-    border: none;
-    color: #7b5feb;
-    cursor: pointer;
-  }
-  
-  .user-table button:hover {
-    color: white;
-  }
-  
+  width: 100%;
+  height: 100%;
+  display: flex;
+  margin-top: 4rem;
+  align-items: center;
+  flex-direction: column;
+}
+
+.user-table {
+  width: 80%;
+}
+
+.user-table th,
+.user-table td {
+  text-align: center;
+  padding: 1rem;
+  border: 1px solid #7b5feb;
+  color: white;
+}
+
+.user-table th {
+  background-color: #261f4d;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px 0 #7b5feb, 0 10px 40px 0 rgb(38, 31, 77);
+}
+
+.user-table td {
+  background-color: #261f4d;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px 0 #7b5feb, 0 10px 40px 0 rgb(38, 31, 77);
+}
+
+.user-table button {
+  background-color: transparent;
+  border: none;
+  color: #7b5feb;
+  cursor: pointer;
+}
+
+.user-table button:hover {
+  color: white;
+}
+
+h1 {
+  color: white;
+  margin-bottom: 2rem;
+  margin-top: 0rem;
+  font-size: 3rem;
+}
+
+.search {
+  display: flex;
+  justify-content: space-between;
+  height: 2.5rem;
+  width: 56rem;
+  margin-bottom: 3rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px 0 #7b5feb, 0 10px 40px 0 rgb(38, 31, 77);
+}

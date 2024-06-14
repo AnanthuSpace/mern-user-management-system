@@ -24,16 +24,6 @@ const adminLogin = async (req, res) => {
     }
 }
 
-// const deleteUser = async (req, res) => {
-//     try {
-//         console.log("wrkng");
-//       const userID = req.body.userID;
-//       const deleteUser = await User.deleteOne({ _id: userID });
-//       res.send(deleteUser);
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   }
 
 const deleteUser = async (req, res) => {
     try {
@@ -45,7 +35,18 @@ const deleteUser = async (req, res) => {
         res.status(500).send({ message: "Server error" });
     }
 };
+
+const updateUser = async (req, res) => {
+    try {
+      const { userID, username } = req.body;
+      const updateUser = await User.updateOne({ _id: userID }, { username: username });
+      res.json(updateUser);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 module.exports = {
     adminLogin,
-    deleteUser
+    deleteUser,
+    updateUser
 }

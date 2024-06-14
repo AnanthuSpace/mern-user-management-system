@@ -3,6 +3,7 @@ import "../../assets/styles/Profile.css";
 import { ToastContainer, toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { editProfile } from "../../redux/users/userThunk";
+import { useNavigate } from "react-router-dom";
 import { Camera } from "../../assets/svg/svg";
 
 function Profile() {
@@ -12,11 +13,12 @@ function Profile() {
   const [image, setImage] = useState(null);
   const imageIconReference = useRef(null);
   const dispatch = useDispatch();
+  
 
   useEffect(() => {
     setEdit(false);
-    console.log(userData);
   }, [userData]);
+
 
   const saveData = async (e, userID) => {
     e.preventDefault();
@@ -77,14 +79,13 @@ function Profile() {
               <div className="image">
                 <img
                   src={`../src/assets/images/${userData.profileURL}`}
-                  alt="Profile"
                 />
               </div>
               <div className="text-left">
                 <p><span>Name : </span>{userData.username}</p>
                 <p><span>Email : </span>{userData.email}</p>
               </div>
-              <button className="btn" onClick={() => setEdit(true)}>Edit</button>
+              <button className="btn" onClick={() =>{ setEdit(true),setUsername(userData.username)}}>Edit</button>
             </>
           )}
         </div>

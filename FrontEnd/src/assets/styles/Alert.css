@@ -1,38 +1,41 @@
 .swal2-confirm.confirm-btn {
-    background: linear-gradient(70deg, rgba(89, 0, 113, 1) 0%, rgb(176, 0, 225) 53%, rgb(89, 0, 113) 100%);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 50px;
-    cursor: pointer;
-    margin-right: 2px;
-    margin-top: -30px;
-  }
-  
-  .swal2-cancel.cancel-btn {
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    border: 1px solid black;
-    padding: 10px 15px;
-    border-radius: 50px;
-    cursor: pointer;
-    margin-left: 2px;
-    margin-top: -30px;
-  }
-  
-  .swal2-confirm.confirm-btn:hover,
-  .swal2-cancel.cancel-btn:hover {
-    opacity: 0.8;
-  }
-  
-  .swal2-popup.custom-width {
-    width: auto;
-    padding: 0px 20px;
-    height: 100px;
-    padding: 0%;
-  }
-  
-  .swal2-popup .custom-text {
-    font-size: 14px;
-    font-weight: bold;
-  }
+  background-color: #7b5feb;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-right: 2px;
+  margin-top: -30px;
+}
+
+.swal2-cancel.cancel-btn {
+  background-color: #7b5feb;
+  color: white;
+  border: 1px solid black;
+  padding: 10px 15px;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-left: 2px;
+  margin-top: -30px;
+}
+
+.swal2-confirm.confirm-btn:hover,
+.swal2-cancel.cancel-btn:hover {
+  background-color: white;
+  color: #7b5feb;
+}
+
+.swal2-popup.custom-width {
+  background-color: #261f4d;
+  width: auto;
+  padding: 0px 20px;
+  height: 100px;
+  padding: 0%;
+}
+
+.swal2-popup .custom-text {
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}

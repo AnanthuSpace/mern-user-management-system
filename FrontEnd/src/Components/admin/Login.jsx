@@ -23,7 +23,6 @@ function Login() {
 
   return (
     <>
-    {console.log("Login page wrkg")}
       <ToastContainer />
       <div className="main-div">
         <div className="login-card shadow-box">

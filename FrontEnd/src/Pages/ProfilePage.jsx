@@ -1,11 +1,12 @@
-import Header from "../Components/common/Header";
+import Header from "../Components/user/Header";
 import Profile from "../Components/user/Profile";
+
 
 function ProfilePage() {
   return (
     <>
-      <Header />
-      <Profile />
+        <Header />
+        <Profile />
     </>
   );
 }

@@ -1,10 +1,10 @@
 import Home from "../Components/admin/Home";
-import Header from "../Components/common/Header";
+import Header from "../Components/admin/Header";
 
 function HomePage() {
   return (
     <>
-      <Header admin={"true"} />
+      <Header />
       <Home />
     </>
   );

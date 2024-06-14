@@ -64,7 +64,8 @@ const editProfile = async (req, res) => {
 
 const fetchUserData =async (req,res) => {
     try {
-        const usersList = await User.find({});
+        const usersList = await User.find({}, { password: 0 });
+        console.log(usersList);
         res.json(usersList);
     } catch (error) {
         console.log(error.message);

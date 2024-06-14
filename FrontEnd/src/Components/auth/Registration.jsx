@@ -1,15 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { registration } from "../../redux/users/userThunk";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../../assets/styles/Registration.css";
+import { useSelector } from "react-redux";
 
 function Registration() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repassword, setRepassword] = useState("");
+  const token = useSelector((state)=>state.user.token)
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -27,6 +29,11 @@ function Registration() {
       }, 2500);
     }
   };
+
+
+  useEffect(()=>{
+    if(token) navigate('/profile')
+  })
 
   return (
     <>

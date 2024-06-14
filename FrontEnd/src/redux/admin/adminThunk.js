@@ -27,6 +27,7 @@ const login = createAsyncThunk(
     }
 );
 
+
 const fetchUser = createAsyncThunk(
     "adminSlice/fetchUser",
     async () => {
@@ -40,7 +41,7 @@ const fetchUser = createAsyncThunk(
     }
 );
 
-export const deleteUser = createAsyncThunk(
+const deleteUser = createAsyncThunk(
     "adminSlice/deleteUser",
     async ({ id, toast }, { rejectWithValue }) => {
         try {
@@ -65,7 +66,40 @@ export const deleteUser = createAsyncThunk(
     }
 );
 
+const updateUser = createAsyncThunk(
+    "adminSlice/updateUser",
+    async ({ id, name, toast }, { rejectWithValue }) => {
+        try {
+            console.log("WORKING");
+            const token = JSON.parse(localStorage.getItem("admin-token"));
+            const response = await axios.post(`${localhostURL}/admin/updateUser`,
+                { userID: id, username: name },
+                {
+                    headers: {
+                        "Authorization": `Bearer ${token}`
+                    }
+                }
+            );
+
+            if (response.data.modifiedCount === 1) {
+                return { id, name };
+            } else if (response.data === "Access_denied" || response.data === "authentication_failed") {
+                toast.error("Access denied, please login again", { hideProgressBar: true, autoClose: 3000 });
+                return rejectWithValue("Access_denied");
+            } else {
+                throw new Error("User name can't change, please try again later");
+            }
+        } catch (error) {
+            toast.error("An error occurred while updating the user", { hideProgressBar: true, autoClose: 3000 });
+            return rejectWithValue(error.response.data || error.message);
+        }
+    }
+);
+
+
 export {
     login,
-    fetchUser
+    fetchUser,
+    updateUser,
+    deleteUser
 };

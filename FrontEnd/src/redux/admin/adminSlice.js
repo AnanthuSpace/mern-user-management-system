@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { login, fetchUser, deleteUser } from "./adminThunk";
+import { login, fetchUser, deleteUser, updateUser } from "./adminThunk";
 
 const getInitialToken = () => {
   const token = localStorage.getItem("admin-token");
@@ -13,9 +13,9 @@ const initialState = {
 
 const adminSlice = createSlice({
   name: "adminSlice",
-  initialState,
+  initialState : initialState,
   reducers: {
-    logoutUser: (state) => {
+    logoutAdmin: (state) => {
       state.adminData = [];
       state.adminToken = false;
       localStorage.removeItem('admin-token');
@@ -30,16 +30,18 @@ const adminSlice = createSlice({
       })
       .addCase(fetchUser.fulfilled, (state, action) => {
         const userList = action.payload;
-        state.usersList = userList;
         state.adminData = userList;
       })
       .addCase(deleteUser.fulfilled, (state, action) => {
         const deletedUserID = action.payload;
-        state.usersList = state.usersList.filter((user) => user._id != deletedUserID && user);
         state.adminData = state.adminData.filter((user) => user._id != deletedUserID && user);
+      })
+      .addCase(updateUser.fulfilled, (state, action) => {
+        const { id, name } = action.payload;
+        state.adminData = state.adminData.map((user) => user._id == id ? { ...user, name: name } : user);
       })
   },
 });
 
-export const { logoutUser } = adminSlice.actions;
+export const { logoutAdmin } = adminSlice.actions;
 export default adminSlice.reducer;

@@ -9,6 +9,7 @@ const a = (req,res,next)=>{
 
 Router.post('/login', Controller.adminLogin)
 Router.delete('/deleteUser', Controller.deleteUser)
+Router.post('/updateUser', Controller.updateUser)
 
 
 module.exports = Router;
